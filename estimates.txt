@@ -1,0 +1,8 @@
+1.Minimum RTO for a single AZ outage
+    Allow for quick switching to the standby instance in another AZ, ensuring minimal downtime.
+2.Minimum RTO for a single region outage
+    Minimum RTO can extend to approximately 30 minutes to 2 hours. In the time, possibly initiate recovery procedures in the standby region, which may involve additional steps compared to an AZ failover.
+3.Minimum RPO for a single AZ outage
+    Replication of data to the standby instance in another AZ, which ensures that no data is lost during the failover process.
+4.Minimum RPO for a single region outage
+    The minimum RPO can range from 10 minutes to several hours. Data replication to the standby region may not be synchronous, depending on the configuration, and there may be a lag in data updates during the transition to the backup region.

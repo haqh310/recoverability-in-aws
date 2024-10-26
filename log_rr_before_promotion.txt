@@ -1,0 +1,37 @@
+1.Install mariadb
+	[ec2-user@ip-10-1-10-159 ~]$ sudo dnf install mariadb105
+
+2.Login to mysql
+	[ec2-user@ip-10-1-10-159 ~]$ mysql -h udacity-readreplica.c4d8pzncjnji.us-west-2.rds.amazonaws.com -u admin -P 3306 -p
+
+3.Show databases
+	MySQL [(none)]> show databases;
+    +--------------------+
+    | Database           |
+    +--------------------+
+    | information_schema |
+    | mysql              |
+    | performance_schema |
+    | sys                |
+    | udacity            |
+    +--------------------+
+    5 rows in set (0.004 sec)
+
+4.Use udacity DB
+	MySQL [sys]> use udacity;
+	Database changed
+
+5.Create table and show data
+	MySQL [udacity]> CREATE TABLE IF NOT EXISTS sample_table (id INT AUTO_INCREMENT, name VARCHAR(100), PRIMARY KEY (id));
+    ERROR 1290 (HY000): The MySQL server is running with the --read-only option so it cannot execute this statement
+
+	MySQL [udacity]> select * from test_table;
+	+----+-------------+
+	| id | name        |
+	+----+-------------+
+	|  1 | Test User 1 |
+	|  2 | Test User 2 |
+	|  3 | Test User 3 |
+	+----+-------------+
+	3 rows in set (0.01 sec)
+

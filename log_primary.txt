@@ -1,0 +1,46 @@
+1.Install mysql
+	[ec2-user@ip-10-1-10-244 ~]$ sudo yum install mysql
+
+2.Login to mysql
+	[ec2-user@ip-10-1-10-244 ~]$ mysql -h udacity-database.cyrjptk6zlsy.us-east-1.rds.amazonaws.com -u admin -P 3306 -p
+
+3.Show databases
+	MySQL [(none)]> show databases;
+	+--------------------+
+	| Database           |
+	+--------------------+
+	| information_schema |
+	| mysql              |
+	| performance_schema |
+	| sys                |
+	| udacity            |
+	+--------------------+
+	5 rows in set (0.00 sec)
+
+4.Use udacity DB
+	MySQL [sys]> use udacity;
+	Database changed
+
+5.Create table, insert and show data
+	MySQL [udacity]> CREATE TABLE IF NOT EXISTS test_table (id INT AUTO_INCREMENT, name VARCHAR(100), PRIMARY KEY (id));
+	Query OK, 0 rows affected (0.07 sec)
+
+	MySQL [udacity]> INSERT INTO test_table (name) VALUES ('Test User 1');
+	Query OK, 1 row affected (0.02 sec)
+
+	MySQL [udacity]> INSERT INTO test_table (name) VALUES ('Test User 2');
+	Query OK, 1 row affected (0.02 sec)
+
+	MySQL [udacity]> INSERT INTO test_table (name) VALUES ('Test User 3');
+	Query OK, 1 row affected (0.02 sec)
+
+	MySQL [udacity]> select * from test_table;
+	+----+-------------+
+	| id | name        |
+	+----+-------------+
+	|  1 | Test User 1 |
+	|  2 | Test User 2 |
+	|  3 | Test User 3 |
+	+----+-------------+
+	3 rows in set (0.01 sec)
+
